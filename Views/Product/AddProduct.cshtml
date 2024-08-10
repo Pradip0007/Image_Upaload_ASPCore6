@@ -1,0 +1,41 @@
+﻿@model ImageUploadingASPCore.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Create Product</h2>
+<p style="color:red">
+    @TempData["Size_error"]
+</p>
+<p style="color:red">
+    @TempData["Extn_error"]
+</p>
+
+<form asp-action="AddProduct" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="photo" class="control-label"></label>
+        <input asp-for="photo" class="form-control" />
+        <span asp-validation-for="photo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
